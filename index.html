@@ -8,11 +8,19 @@
   <body ng-controller="mainCtrl">
     <div class="main-container">
       <h1> DevMountain Chat Room </h1>
+      <a href="privateindex.html"><button class="btn btn-warning">Enter Private Chat</button></a>
       <form ng-submit="postData()">
         <input class="form-control text-box" type="text" ng-model="message" placeholder="Message">
       </form>
+      <input class="form-control text-box" type="text" placeholder="filter" ng-model="filterBy">
+       <p>Order by Date:  <buttton class="btn btn-warning"ng-click="reverseData()">Reverse Sort</buttton>
+          <!-- <option value="+">Ascending</option>
+          <option value="-">Descending</option>
+          </select> --></p>
+     
+      
       <div class="messages-container">
-        <p ng-repeat="message in messages"> {{message.text}} </p>
+        <p ng-repeat="message in messages | filter: filterBy"> {{message.text}} <br />{{message.createdAt | date: "short"}} </p>
       </div>
     </div>
     <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.2.19.min.js"></script>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app="twitterClone">
+<head>
+	<title>Private Chat</title>
+</head>
+<body ng-controller="prvtCtrl">
+<div class="container">
+	<h2>DevMountain Private Chat</h2>
+	<form ng-submit="postData()">
+		<input class="form-control text-box" type="text" placeholder="message" ng-model="message">
+	</form>
+		<input class="form-control text-box" type="text" placeholder="filter" ng-model="filterBy">
+</div>
+<div class="message-container">
+ <p ng-repeat="message in messages | filter: filterBy">{{message.text}}</p>	
+
+</div>
+
+
+<script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.2.19.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js"></script>
+<script src="js/app.js"></script>
+<script src="js/prvtCtrl.js"></script>
+<script src="js/prvtService.js"></script>
+</body>
+</html>
